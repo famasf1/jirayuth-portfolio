@@ -1,6 +1,6 @@
-# create-svelte
+# Jirayuth Porka's Portfolio
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+powered by [`SvelteKit CLI`](https://github.com/sveltejs/cli).
 
 ## Creating a project
 
