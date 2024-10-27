@@ -12,6 +12,7 @@
         TabletSmartphone,
         Server,
     } from "lucide-svelte"; 
+    import JirayuthImage from '@images/jirayuth-img.jpg';
 
     /// After getting the word, 
     /// 1. loop through the words inside the list, put them into array
@@ -21,7 +22,7 @@
     let displayWords: string[] = $state.raw(["_"]);
     let displayWord: string = $state("");
     let randomWord: string = _retrivedRandomWord();
-    let timeUpdate: number = 150;
+    let timeUpdate: number = 120;
     const timer = (timeUpdate: number | undefined) => new Promise(res => setTimeout(res, timeUpdate));
 
     $effect(() => {
@@ -57,13 +58,15 @@
 
     function _retrivedRandomWord():string {
         let words = [
-            "Your Next Hiring Choice",
+            "The Face of Your Next Hiring Choice",
             "Jirayuth's Portfolio", 
             "Jumbo's Jet", 
             "My Little Tiny World", 
             "My Hidden Lair",
             "A Selected Showcase of My Finest Works", 
             "What?",
+            "The Only Safe Space",
+            "The Future"
         ];
         let selectedWord = words[Math.floor(Math.random() * words.length)];
         return selectedWord;
@@ -137,9 +140,31 @@
                     <li class="flex flex-row gap-2 items-center"><Database />Database Management</li>
                 </ul>
             </li>
+            <li>
+                Technologies - 
+                <ul class="list-disc pl-4">
+                    <li class="gap-2 items-center">Comfortable - 
+                        <ul class="list-disc pl-4">
+                            <li class="flex flex-row gap-2 items-center">C# (.NET Framework, .NET Core, Winforms)</li>
+                            <li class="flex flex-row gap-2 items-center">Dart (Flutter)</li>
+                            <li class="flex flex-row gap-2 items-center">Python (Scripting)</li>
+                            <li class="flex flex-row gap-2 items-center">Javascript (Node.js)</li>
+                        </ul>
+                    </li>
+                    <li class="gap-2 items-center">Learning - 
+                        <ul class="list-disc pl-4">
+                            <li class="flex flex-row gap-2 items-center">C++, Rust (Embedded)</li>
+                            <li class="flex flex-row gap-2 items-center">Swift & Kotlin (Flutter Native Development)</li>
+                            <li class="flex flex-row gap-2 items-center">Typescript (SvelteKit)</li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </li>
         </ul>
     </div>
-    <div class="rounded-lg border-2 border-gray-200 bg-white p-4 flex flex-col gap-4 flex-shrink">
-        <img src="/images/jirayuth-profile.jpg" alt="Jirayuth's Profile" class="rounded-lg" />
-    </div>
+    <Avatar class="rounded-full justify-end w-48 h-48">
+        <AvatarImage src={JirayuthImage}></AvatarImage>
+        <AvatarFallback>JP</AvatarFallback>
+    </Avatar>
 </div>
