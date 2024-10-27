@@ -9,25 +9,50 @@
     /// 1.5 if word already exist inside array, remove it out one by one. Otherwise go to step 2
     /// 2. loop each letter from array and display it
     /// 3. repeat
-    let displayWord:string[] = [];
+    let displayWords: string[] = $state.raw(["_"]);
+    let displayWord: string = $state("");
+    let randomWord: string = _retrivedRandomWord();
+    let timeUpdate: number = 150;
+    const timer = (timeUpdate: number | undefined) => new Promise(res => setTimeout(res, timeUpdate));
 
-    function _addLetter(word: string) {
+    $effect(() => {
+        renderRandomWord();
+    });
+
+    async function renderRandomWord() {
+        if (displayWords.length > 1) {
+            await _removeLetter(displayWords);
+        }
+        await _addLetter(randomWord);  
+        randomWord = _retrivedRandomWord();
+        setTimeout(renderRandomWord, displayWords.length * timeUpdate);
+    }
+
+    async function _addLetter(word: string) {
         let letters = word.split("");
         for (let i = 0; i < letters.length; i++) {
-            displayWord += letters[i];
+            displayWords.splice(i,0,letters[i]);
+            // displayWords.splice(displayWords.length, 0, "_");
+            displayWord = displayWords.join("");
+            await timer(timeUpdate);
         }
     }
 
-    function _removeLetter(displayWord: string[]) {
-        for (let i = 0; i < displayWord.length; i++) {
-            displayWord.splice(i, 1);
+    async function _removeLetter(displayWords: string[]) {
+        for (let i = displayWords.length; i > 1; i--) {
+            displayWords.splice(i - 2,1);
+            displayWord = displayWords.join("");
+            await timer(timeUpdate);
         }
     }
 
-    function randomWord() {
-        let words = ["Jirayuth's Portfolio", "Jumbo's Jet", "My Little Tiny World", "My Hidden Lair", "What?"];
-        return words[Math.floor(Math.random() * words.length)];
+    function _retrivedRandomWord():string {
+        let words = ["Your Next Hiring Choice","Jirayuth's Portfolio", "Jumbo's Jet", "My Little Tiny World", "My Hidden Lair","A Selected Showcase of My Finest Works", "What?"];
+        let selectedWord = words[Math.floor(Math.random() * words.length)];
+        return selectedWord;
     }
+
+    
 </script>
 <main>
     <div class="mr-12">
@@ -42,7 +67,7 @@
             <Button href="/about" class="text-2xl font-bold"  variant="outline">Contact</Button>
         </nav>
         <h1 class="text-6xl font-bold text-start px-12">
-            Welcome to {randomWord()}
+            Welcome to {displayWord}
         </h1>
     </div>
 </main>
