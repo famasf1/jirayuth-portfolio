@@ -1,8 +1,17 @@
 <script lang="ts">
-    import {Button} from "$lib/components/ui/button";
-    import Sun from "lucide-svelte/icons/sun"
-    import Moon from "lucide-svelte/icons/moon";
-    import { toggleMode } from "mode-watcher";
+    import { HoverCard,HoverCardContent, HoverCardTrigger } from "$lib/components/ui/hover-card";
+    import { Avatar, AvatarImage, AvatarFallback } from "$lib/components/ui/avatar";
+    import { 
+        Disc, 
+        Database, 
+        CircleUserRound, 
+        Briefcase, 
+        MapPin, 
+        GraduationCap ,
+        PanelsTopLeft,
+        TabletSmartphone,
+        Server,
+    } from "lucide-svelte"; 
 
     /// After getting the word, 
     /// 1. loop through the words inside the list, put them into array
@@ -47,27 +56,90 @@
     }
 
     function _retrivedRandomWord():string {
-        let words = ["Your Next Hiring Choice","Jirayuth's Portfolio", "Jumbo's Jet", "My Little Tiny World", "My Hidden Lair","A Selected Showcase of My Finest Works", "What?"];
+        let words = [
+            "Your Next Hiring Choice",
+            "Jirayuth's Portfolio", 
+            "Jumbo's Jet", 
+            "My Little Tiny World", 
+            "My Hidden Lair",
+            "A Selected Showcase of My Finest Works", 
+            "What?",
+        ];
         let selectedWord = words[Math.floor(Math.random() * words.length)];
         return selectedWord;
     }
 
     
 </script>
-<main>
-    <div class="mr-12">
-        <nav class="justify-end my-12 mx-auto flex flex-row gap-4">
-            <Button onclick={toggleMode} variant="outline" size="icon">
-                <Sun class="h-[1-2rem] w-[1-2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon class="absolute h-[1-2rem] w-[1-2rem] rotate-45 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                <span class="sr-only">Toggle theme</span>
-            </Button>
-            <Button href="/" class="text-2xl font-bold" variant="outline">About Me</Button>
-            <Button href="/contact" class="text-2xl font-bold"  variant="outline">Work</Button>
-            <Button href="/about" class="text-2xl font-bold"  variant="outline">Contact</Button>
-        </nav>
-        <h1 class="text-6xl font-bold text-start px-12">
-            Welcome to {displayWord}
-        </h1>
+
+
+<h1 class="text-6xl font-bold text-start px-12">
+    Welcome to {displayWord}
+</h1>
+<h2 class="text-2xl font-thin text-start px-12">This is my selected portfolio</h2>
+<br />
+<div class="flex gap-12 px-12 justify-between h-full">
+    <div class="flex-1 gap-2">
+        <p class="text-lg font-thin text-start">
+            Self-taught Full Stack Software Engineer with a Bachelor Degree in English from Ramkhamhaeng University. Currently in Bangkok, Thailand.
+            <br />
+            I'm currently working as a Junior Developer at 
+            <HoverCard>
+                <HoverCardTrigger 
+                    href="https://www.techbusiness.co.th/" 
+                    target="_blank" 
+                    rel="noreferrer noopener" 
+                    class="rounded-md underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-black">
+                    @Tech Business
+                </HoverCardTrigger>
+                <HoverCardContent class="w-80">
+                    <div class="flex space-x-4">
+                        <div class="space-y-1">
+                            <h3 class="font-bold text-md">Tech Business Co,Ltd</h3>
+                            <h4 class="text-sm font-semibold">@techbusiness</h4>
+                            <p class="text-sm">Moving & Developing Software with Future-Forward Technologies</p>
+                        </div>
+                        <Avatar class="justify-end">
+                            <AvatarImage src="/"></AvatarImage>
+                            <AvatarFallback>TB</AvatarFallback>
+                        </Avatar>
+                        
+                    </div>
+                </HoverCardContent>
+            </HoverCard>
+            <br />
+            As the company is growing, I've been working in all sort of tech fields. From frontend development to backend development, 
+            From Web Development to Mobile Development. 
+            Over the past year, I've been focusing on building user-friendly and responsive websites and mobile applications. 
+            I'm also passionate about learning new technologies and staying up-to-date with the latest trends in the industry.
+            <br />
+            If you're interested in working with me, please feel free to reach out to me through my contact page.
+            <br />
+            Thank you for visiting my portfolio!
+        </p>
     </div>
-</main>
+    <div class="flex-1 gap-4">
+        <ul class="text-lg font-bold text-start list-disc">
+            <li class="flex flex-row gap-2 items-center"><CircleUserRound />Name - Jirayuth Porka (Jumbo or Bo in short)</li>
+            <li class="flex flex-row gap-2 items-center"><Briefcase />Current Role - Full Stack Software Engineer</li>
+            <li class="flex flex-row gap-2 items-center"><MapPin />Location - Bangkok, Thailand</li>
+            <li class="flex flex-row gap-2 items-center"><GraduationCap />Education - Bachelor Degree in English, Ramkhamhaeng University</li>
+            <li >Focused on - 
+                <ul class="list-disc pl-4">
+                    <li class="flex flex-row gap-2 items-center"><PanelsTopLeft />Frontend Development</li>
+                    <li class="flex flex-row gap-2 items-center"><TabletSmartphone />Mobile Development</li>
+                </ul>
+            </li>
+            <li>
+                Nice to have - 
+                <ul class="list-none pl-4">
+                    <li class="flex flex-row gap-2 items-center"><Server />Backend Development</li>
+                    <li class="flex flex-row gap-2 items-center"><Database />Database Management</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="rounded-lg border-2 border-gray-200 bg-white p-4 flex flex-col gap-4 flex-shrink">
+        <img src="/images/jirayuth-profile.jpg" alt="Jirayuth's Profile" class="rounded-lg" />
+    </div>
+</div>
