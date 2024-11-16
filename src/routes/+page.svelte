@@ -111,17 +111,21 @@
                 </HoverCardContent>
             </HoverCard>
             <br />
-            As the company is growing, I've been working in all sort of tech fields. From frontend development to backend development, 
-            From Web Development to Mobile Development. 
-            Over the past year, I've been focusing on building user-friendly and responsive websites and mobile applications. 
+            <br />
+            As time passed, I've been working in all sort of tech fields. From frontend development to backend development,
+            From Web Development to Mobile Development. I'm known to be the person who wear many hats. Which mean constantly
+            adapting to user's requirements on their software needed. They got problem, i got solution!
+            <br />
+            <br />
+            Over the past 3 years, I've been focusing on building user-friendly and responsive websites and mobile applications.
             I'm also passionate about learning new technologies and staying up-to-date with the latest trends in the industry.
             <br />
-            If you're interested in working with me, please feel free to reach out to me through my contact page.
+            If you're interested in working with me, please feel free to reach out to me through my contact link on your right.
             <br />
-            Thank you for visiting my portfolio!
+            Thank you for visiting my portfolio website!
         </p>
     </div>
-    <div class="flex-1 gap-4">
+    <div class="flex-2 gap-2">
         <ul class="text-lg font-bold text-start list-disc">
             <li class="flex flex-row gap-2 items-center"><CircleUserRound />Name - Jirayuth Porka (Jumbo or Bo in short)</li>
             <li class="flex flex-row gap-2 items-center"><Briefcase />Current Role - Full Stack Software Engineer</li>
@@ -149,6 +153,7 @@
                             <li class="flex flex-row gap-2 items-center">Dart (Flutter)</li>
                             <li class="flex flex-row gap-2 items-center">Python (Scripting)</li>
                             <li class="flex flex-row gap-2 items-center">Javascript (Node.js)</li>
+                            <li class="flex flex-row gap-2 items-center">MSSQL + LINQ</li>
                         </ul>
                     </li>
                     <li class="gap-2 items-center">Learning - 
@@ -163,8 +168,19 @@
             </li>
         </ul>
     </div>
-    <Avatar class="rounded-full justify-end w-48 h-48">
-        <AvatarImage src={JirayuthImage}></AvatarImage>
-        <AvatarFallback>JP</AvatarFallback>
-    </Avatar>
+
+    <div class="col-span-auto mr-3 pr-2" >
+        <Avatar class="rounded-full justify-end w-48 h-48">
+            <AvatarImage src={JirayuthImage}></AvatarImage>
+            <AvatarFallback>JP</AvatarFallback>
+        </Avatar>
+        <div class="flex flex-row gap-x-auto justify-between">
+            <p class="text-start font-semibold pt-6">Github</p>
+            <p class="text-end font-semibold pt-6">Gitlab</p>
+        </div>
+        <div class="flex flex-row gap-x-auto justify-between">
+            <p class="text-start font-semibold pt-6">Facebook</p>
+            <p class="text-end font-semibold pt-6">Line</p>
+        </div>
+    </div>
 </div>
