@@ -1,8 +1,7 @@
 <script lang="ts">
     import { HoverCard,HoverCardContent, HoverCardTrigger } from "$lib/components/ui/hover-card";
     import { Avatar, AvatarImage, AvatarFallback } from "$lib/components/ui/avatar";
-    import { 
-        Disc, 
+    import {
         Database, 
         CircleUserRound, 
         Briefcase, 
@@ -13,6 +12,9 @@
         Server,
     } from "lucide-svelte"; 
     import JirayuthImage from '@images/jirayuth-img.jpg';
+    import ContactHoverCard from '$lib/components/ContactHoverCard.svelte';
+    import github from '@logo/github.svg';
+    import github_dark from '@logo/github-dark.svg';
 
     /// After getting the word, 
     /// 1. loop through the words inside the list, put them into array
@@ -72,7 +74,7 @@
         return selectedWord;
     }
 
-    
+    let github_content = `Mobile & Web Developer, \\n C#, Javascript, TypeScript, Python, Dart`;
 </script>
 
 
@@ -174,13 +176,49 @@
             <AvatarImage src={JirayuthImage}></AvatarImage>
             <AvatarFallback>JP</AvatarFallback>
         </Avatar>
-        <div class="flex flex-row gap-x-auto justify-between">
-            <p class="text-start font-semibold pt-6">Github</p>
-            <p class="text-end font-semibold pt-6">Gitlab</p>
+        <div class="flex flex-row place-content-between items-center pt-4">
+            <ContactHoverCard
+              display_name="Github"
+              user_icon_id="github_id"
+              user_icon_dark={github_dark}
+              user_icon_light={github}
+              header="Jirayuth Porka"
+              subheader="@famasf1"
+              url="https://github.com/famasf1/"
+              avatar_img_url="https://avatars.githubusercontent.com/u/86623043"
+              content={github_content}></ContactHoverCard>
+            <ContactHoverCard
+              display_name="Github"
+              user_icon_id="github_id"
+              user_icon_dark={github_dark}
+              user_icon_light={github}
+              header="Jirayuth Porka"
+              subheader="@famasf1"
+              url="https://github.com/famasf1/"
+              avatar_img_url="https://avatars.githubusercontent.com/u/86623043"
+              content={github_content}></ContactHoverCard>
         </div>
-        <div class="flex flex-row gap-x-auto justify-between">
-            <p class="text-start font-semibold pt-6">Facebook</p>
-            <p class="text-end font-semibold pt-6">Line</p>
+        <div class="flex flex-row place-content-between items-center pt-4">
+            <ContactHoverCard
+              display_name="Github"
+              user_icon_id="github_id"
+              user_icon_dark={github_dark}
+              user_icon_light={github}
+              header="Jirayuth Porka"
+              subheader="@famasf1"
+              url="https://github.com/famasf1/"
+              avatar_img_url="https://avatars.githubusercontent.com/u/86623043"
+              content={github_content}></ContactHoverCard>
+            <ContactHoverCard
+              display_name="Github"
+              user_icon_id="github_id"
+              user_icon_dark={github_dark}
+              user_icon_light={github}
+              header="Jirayuth Porka"
+              subheader="@famasf1"
+              url="https://github.com/famasf1/"
+              avatar_img_url="https://avatars.githubusercontent.com/u/86623043"
+              content={github_content}></ContactHoverCard>
         </div>
     </div>
 </div>

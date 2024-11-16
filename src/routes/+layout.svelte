@@ -22,7 +22,6 @@
 				</Button>
 				<Button href="/" class="text-2xl font-bold" variant="outline">About Me</Button>
 				<Button href="/works" class="text-2xl font-bold"  variant="outline">Work</Button>
-				<Button href="/contact" class="text-2xl font-bold"  variant="outline">Contact</Button>
 			</nav>
 			{@render children()}
 		</div>
